@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500&family=Lato&family=Montserrat:wght@700&family=Open+Sans&family=Plus+Jakarta+Sans&family=Poppins:wght@500&display=swap');
+.screenContainer {
+  @apply px-5 sm:px-6 md:px-10 lg:px-14 xl:px-32;
+}
+
+.navContainer {
+  @apply px-3 sm:px-6 md:px-10  lg:px-14 xl:px-32;
+  /* @apply py-3; */
+}
+
+.cardXs {
+  @apply p-2 sm:p-2.5 md:p-3 lg:p-4;
+}
+
+.cardSm {
+  @apply p-2 sm:p-3 md:p-4 lg:p-5 xl:p-6;
+}
+
+.cardMd {
+  @apply p-3 sm:p-4 md:p-5 lg:p-7 xl:p-9;
+}
+
+.cardXl {
+  @apply p-3 sm:p-5 md:p-7 lg:p-10 xl:p-12;
+}
+
+.hideScrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hideScrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
