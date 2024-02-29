@@ -75,7 +75,7 @@ const toggle = () => {
           >
             <li v-for="link of value?.headerItems">
               <NuxtLink
-              :to="link.link?.story?.url ? link.link.story.url : '/'"
+              :to="link.link?.story?.url"
                 class="pl-3 font-mediam text-white font-jakarta text-base"
               >
               {{ link.label }}
