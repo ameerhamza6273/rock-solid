@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, Ref } from "vue";
 import { getNavData, useNavData } from "../composables/storyblok";
+import { storyblokLink } from "../utils/storyblokLink";
 import { Footer } from "../types/footer";
 import { CalendarIcon, EnvelopeIcon, PhoneIcon } from "@heroicons/vue/24/solid";
 
@@ -11,14 +12,7 @@ onMounted(async () => {
 });
 
 const isToggled = ref(false);
-const headerItems = [
-  {title : 'Home' , link : '/'},
-  {title : 'About' , link : '/about'},
-  {title : 'Services' , link : '/services'},
-  {title : 'Products' , link : 'products'},
-  {title : 'Downloads' , link : 'downloads'},
-  {title : 'Contact Us' , link : 'contactus'},
-]
+
 const toggle = () => {
   isToggled.value = !isToggled.value;
 };
@@ -80,12 +74,12 @@ const toggle = () => {
           <ul
             class="flex flex-col p-4 md:p-0 mt-4 font-medium md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0"
           >
-            <li v-for="link of headerItems">
+            <li v-for="link of value?.headerItems">
               <NuxtLink
-              :to="link.link"
+              :to="storyblokLink(link.link.story.url)"
                 class="pl-3 font-mediam text-white font-jakarta text-base"
               >
-              {{ link.title }}
+              {{ link.label }}
               </NuxtLink>
             </li>
           </ul>
