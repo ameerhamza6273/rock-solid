@@ -39,9 +39,4 @@ export default defineNuxtConfig({
   seo: {
     redirectToCanonicalSiteUrl: true
   },
-
-  router: {
-    base: '/your-base-url/'
-  }
-  
 });

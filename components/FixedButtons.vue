@@ -2,7 +2,7 @@
   <div>
     <!-- buttons fixed on mobile -->
     <section
-      class="bg-white flex items-center btn-fixed gap-2 justify-around fixed w-full z-40 bottom-[-2px] start-0 p-2 pb-2.5 md:hidden"
+      class="bg-white flex items-center btn-fixed gap-2 justify-around fixed w-full z-40 bottom-[-4px] start-0 p-2 pb-2.5 md:hidden"
     >
       <button
         type="button"
