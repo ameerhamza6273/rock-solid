@@ -56,6 +56,7 @@ useSeoMeta({
   <StoryblokComponent v-if="pending === false && story" :blok="story.content" />
 </template> -->
 <script setup lang="ts">
+import { getInstaPosts } from "../composables/instaFeed";
 import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
 const { slug } = useRoute().params;
@@ -97,14 +98,14 @@ let story, pending;
 })();
 // definePageMeta({ layout: "default" });
 
-onMounted(async () => {
-  if (isPreview && story && story.value && story.value.id) {
-    alert("hh");
-    useStoryblokBridge(story.value.id, (evStory) => (story.value = evStory), {
-      resolveRelations,
-    });
-  }
-});
+// onMounted(async () => {
+//   if (isPreview && story && story.value && story.value.id) {
+//     alert("hh");
+//     useStoryblokBridge(story.value.id, (evStory) => (story.value = evStory), {
+//       resolveRelations,
+//     });
+//   }
+// });
 </script>
 
 <template>

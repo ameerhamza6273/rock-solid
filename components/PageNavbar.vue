@@ -28,8 +28,18 @@ const toggle = () => {
         <ul
           class="flex font-medium text-base max-w-[420px] ml-auto items-center"
         >
-          <li class="pr-3 text-[#1E1E1E]">Place your order</li>
-          <li class="px-3 text-[#1E1E1E] border-x border-[#000]">Call Us</li>
+          <li class="pr-3 text-[#1E1E1E]">
+            <NuxtLink
+              :to="`tel:${value.phoneNumber}`"
+              >{{ value.placeOrder }}
+            </NuxtLink>
+          </li>
+          <li class="px-3 text-[#1E1E1E] border-x border-[#000]">
+            <NuxtLink
+              :to="`tel:${value.phoneNumber}`"
+              >{{ value.callUs}}
+            </NuxtLink>
+          </li>
           <li class="pl-3 text-primary">
             <NuxtLink
               :to="`tel:${value.phoneNumber}`"
