@@ -46,8 +46,8 @@ const modules = [Navigation, Pagination];
           :key="value.title"
           class="mySlider px-4 md:px-16 w-[100%] h-[100%] relative bg-cover bg-[#F6F7FA] bg-center md:bg-bottom lg:center xl:bg-center bg-[url('https://storage.googleapis.com/msgsndr/MLvKvVyGos8j4OV4y4Zt/media/65cdbf71190e878f92f457ff.png')] md:bg-[url('https://storage.googleapis.com/msgsndr/YxAHM5dU3e0Y8xUZ6ldI/media/65c5fec46c059cbda18375db.png')]"
         >
-          <div class="h-[80vh] md:max-h-[375px] lg:max-h-[490px] xl:max-h-[580px] flex">
-            <div class="pt-[320px] mb-20 md:mb-0 md:self-center px-0 md:px-4">
+          <div class="h-[85vh] md:h-screen md:max-h-[375px] lg:max-h-[490px] xl:max-h-[580px] flex">
+            <div class="self-end mb-20 md:mb-0 md:self-center px-0 md:px-4">
               <StoryblokHeading
                 class="font-jakarta mt-0 md:mt-3"
                 v-for="heading of value.headings"
@@ -84,7 +84,7 @@ background-color: #FF6C2B !important ; /* Replace with your desired color */
 @media screen and (max-width: 660px) {
   ::v-deep .swiper-pagination {
   margin-left: 17px;
-  margin-top: 305px;
+  margin-bottom: 45px;
 }
 }
 </style>
