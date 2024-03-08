@@ -52,7 +52,7 @@ const modules = [Navigation, Pagination];
         <swiper-slide
           v-for="value in blok.services"
           :key="value.title"
-          class="py-14 md:pb-20 px-4 md:px-10 max-w-[33%]"
+          class="py-14 md:pb-20 px-4 md:px-10 md:max-w-[50%] lg:max-w-[33%]"
         >
           <NuxtImg
             :src="value.content.image.filename"

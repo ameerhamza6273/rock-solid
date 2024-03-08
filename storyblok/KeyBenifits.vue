@@ -7,7 +7,7 @@ const props = defineProps({
   <div v-editable="blok">
     <section class="py-20 px-4">
       <div
-        class="flex flex-col gap-20 lg:flex-row md:max-w-[1110px] md:mx-auto items-center"
+        class="flex flex-col gap-20 lg:flex-row md:max-w-[1110px] md:mx-auto md:items-center"
       >
       <!-- content column is here -->
         <div>

@@ -31,7 +31,7 @@ const classes = computed(() => {
       " text-lg sm:text-xl md:text-2xl": props.heading?.size == "2xl",
       " text-lg font-semiblold sm:text-xl md:text-3xl ": props.heading?.size == "3xl",
       "text-4xl font-semibold": props.heading?.size == "4xl",
-      "text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-semibold":
+      "text-xl sm:text-3xl md:text-4xl xl:text-5xl font-bold md:font-semibold":
         props.heading?.size == "5xl",
       "text-6xl font-semibold": props.heading?.size == "6xl",
       "text-xl font-semibold sm:text-2xl md:text-4xl md:text-5xl lg:text-6xl  xl:text-7xl":

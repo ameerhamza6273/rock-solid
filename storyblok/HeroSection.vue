@@ -44,10 +44,10 @@ const modules = [Navigation, Pagination];
         <swiper-slide
           v-for="value in blok.heroslider"
           :key="value.title"
-          class="mySlider px-4 md:px-16 w-[100%] h-[100%] relative bg-cover bg-[#F6F7FA] bg-center md:bg-bottom bg-[url('https://storage.googleapis.com/msgsndr/MLvKvVyGos8j4OV4y4Zt/media/65cdbf71190e878f92f457ff.png')] md:bg-[url('https://storage.googleapis.com/msgsndr/YxAHM5dU3e0Y8xUZ6ldI/media/65c5fec46c059cbda18375db.png')]"
+          class="mySlider px-4 md:px-16 w-[100%] h-[100%] relative bg-cover bg-[#F6F7FA] bg-center md:bg-bottom lg:center xl:bg-center bg-[url('https://storage.googleapis.com/msgsndr/MLvKvVyGos8j4OV4y4Zt/media/65cdbf71190e878f92f457ff.png')] md:bg-[url('https://storage.googleapis.com/msgsndr/YxAHM5dU3e0Y8xUZ6ldI/media/65c5fec46c059cbda18375db.png')]"
         >
-          <div class="h-screen flex">
-            <div class="self-end mb-20 md:mb-0 md:self-center px-4">
+          <div class="h-[80vh] md:max-h-[375px] lg:max-h-[490px] xl:max-h-[580px] flex">
+            <div class="pt-[320px] mb-20 md:mb-0 md:self-center px-0 md:px-4">
               <StoryblokHeading
                 class="font-jakarta mt-0 md:mt-3"
                 v-for="heading of value.headings"
@@ -56,7 +56,7 @@ const modules = [Navigation, Pagination];
               <StoryblokBtn
                 v-for="button of value.action"
                 :button="button"
-                class="max-w-[148px] md:max-w-[170px] font-jakarta mt-4 md:mt-10"
+                class="max-w-[148px] md:max-w-[170px] font-jakarta mt-4 md:mt-10 hidden md:block"
               >
               </StoryblokBtn>
             </div>
@@ -83,8 +83,8 @@ background-color: #FF6C2B !important ; /* Replace with your desired color */
 }
 @media screen and (max-width: 660px) {
   ::v-deep .swiper-pagination {
-  margin-left: 27px;
-  margin-bottom: 10px;
+  margin-left: 17px;
+  margin-top: 305px;
 }
 }
 </style>

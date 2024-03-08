@@ -22,10 +22,19 @@ const props = defineProps({
         />
       </div>
       <!-- image is here -->
-      <NuxtImg
+      <!-- <NuxtImg
         :src="blok.image.filename"
         class="max-w-[1000px] mx-auto w-full mt-14"
-      ></NuxtImg>
+      ></NuxtImg> -->
+
+      <iframe
+        class="max-w-[1000px] mx-auto w-full mt-14"
+        width="560"
+        height="450"
+        :src="blok.videoLink"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
     </div>
   </div>
 </template>

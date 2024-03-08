@@ -88,14 +88,14 @@ const toggle = () => {
     </nav>
     <!-- mobile navbar -->
     <div
-      class="w-full h-full fixed z-20 pt-10 top-[60px] bg-[#2F6CC8] md:hidden sm:block"
+      class="w-full h-full fixed z-40 pt-10 top-[60px] bg-[#2F6CC8] md:hidden sm:block"
       v-if="isToggled"
     >
       <div class="px-4">
         <ul class="py-4 font-medium rounded-lg">
           <li v-for="link of value?.headerItems">
               <NuxtLink
-              :to="link.link?.story?.url"
+              :to="storyblokLink(link.link.story.url)"
                 class="hover:underline text-center pl-3 font-mediam text-white font-jakarta text-base rounded-lg block py-2 px-3 md:p-0"
                 @click="toggle"
               >
