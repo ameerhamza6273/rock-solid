@@ -21,6 +21,9 @@ const props = defineProps({
           <div v-for="value in blok.iconbox" class="">
             <div class="flex mt-2">
               <NuxtImg
+                v-if="value.image.filename"
+                format="webp"
+                quality="100"
                 :src="value.image.filename"
                 class="w-5 h-5 mt-1 mr-3"
               ></NuxtImg>
@@ -37,6 +40,9 @@ const props = defineProps({
           <div v-for="value in blok.time" class="">
             <div class="flex mt-2">
               <NuxtImg
+                v-if="value.image.filename"
+                format="webp"
+                quality="100"
                 :src="value.image.filename"
                 class="w-5 h-5 mt-1 mr-3"
               ></NuxtImg>

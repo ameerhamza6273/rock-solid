@@ -66,7 +66,8 @@ const url = slug && slug.length > 0 ? slug.join("/") : "home";
 const isPreview = useRuntimeConfig().public.NODE_ENV !== "production";
 
 // const { locale } = useI18n();
-const resolveRelations = ["featuredServises.services", "allServices.services"];
+const resolveRelations = ["featuredServises.services", "allServices.services",
+ "featuredOurServices.services", "featuredProducts.products", "featuredSpecialistProducts.products"];
 const show = ref(true);
 
 let story, pending;
@@ -98,14 +99,14 @@ let story, pending;
 })();
 // definePageMeta({ layout: "default" });
 
-// onMounted(async () => {
-//   if (isPreview && story && story.value && story.value.id) {
-//     alert("hh");
-//     useStoryblokBridge(story.value.id, (evStory) => (story.value = evStory), {
-//       resolveRelations,
-//     });
-//   }
-// });
+onMounted(async () => {
+  if (isPreview && story && story.value && story.value.id) {
+    alert("hh");
+    useStoryblokBridge(story.value.id, (evStory) => (story.value = evStory), {
+      resolveRelations,
+    });
+  }
+});
 </script>
 
 <template>

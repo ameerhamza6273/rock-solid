@@ -19,8 +19,8 @@ const toggle = () => {
 </script>
 
 <template>
-  <div v-editable="navData" >
-    <section v-for="value in navData?.body"> 
+  <div v-editable="navData">
+    <section v-for="value in navData?.body">
       <!-- topnav -->
       <nav
         class="bg-[#F6F7FA] fixed w-full z-40 top-0 start-0 py-2 hidden lg:block"
@@ -29,15 +29,13 @@ const toggle = () => {
           class="flex font-medium text-base max-w-[420px] ml-auto items-center"
         >
           <li class="pr-3 text-[#1E1E1E]">
-            <NuxtLink
-              :to="`tel:${value.phoneNumber}`"
+            <NuxtLink :to="`tel:${value.phoneNumber}`"
               >{{ value.placeOrder }}
             </NuxtLink>
           </li>
           <li class="px-3 text-[#1E1E1E] border-x border-[#000]">
-            <NuxtLink
-              :to="`tel:${value.phoneNumber}`"
-              >{{ value.callUs}}
+            <NuxtLink :to="`tel:${value.phoneNumber}`"
+              >{{ value.callUs }}
             </NuxtLink>
           </li>
           <li class="pl-3 text-primary">
@@ -45,7 +43,13 @@ const toggle = () => {
               :to="`tel:${value.phoneNumber}`"
               class="flex items-center"
             >
-              <nuxtImg :src="value.icon.filename" class="w-4 h-4 mr-1"></nuxtImg
+              <nuxtImg
+                v-if="value.icon.filename"
+                format="webp"
+                quality="100"
+                :src="value.icon.filename"
+                class="w-4 h-4 mr-1"
+              ></nuxtImg
               >{{ value.phoneNumber }}
             </NuxtLink>
           </li>
@@ -57,14 +61,21 @@ const toggle = () => {
           class="max-w-[1200px] flex flex-wrap items-center justify-between mx-auto py-4 md:py-7 px-4"
         >
           <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <img :src="value.logo.filename" class="w-32 lg:w-44" alt="Logo" />
+            <nuxtImg
+              v-if="value.logo.filename"
+              format="webp"
+              quality="100"
+              :src="value.logo.filename"
+              class="w-32 lg:w-44"
+              alt="Logo"
+            />
           </a>
           <div
             class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse md:hidden"
           >
             <button
               type="button"
-              class="inline-flex items-center p-2 w-10 h-10 rounded-lg "
+              class="inline-flex items-center p-2 w-10 h-10 rounded-lg"
               @click="toggle"
             >
               <span class="sr-only">Open main menu</span>

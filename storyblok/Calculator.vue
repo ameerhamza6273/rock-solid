@@ -35,6 +35,9 @@ const submitForm = () => {
         >
           <div class="flex items-center gap-3 cursor-pointer">
             <NuxtImg
+              v-if="tab.image.filename"
+              format="webp"
+              quality="100"
               :src="tab.image.filename"
               class="transition-all duration-300 filter grayscale w-11"
               :class="{

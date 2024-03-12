@@ -1,6 +1,5 @@
 <script setup lang="ts">
-
-import { defineProps, ref } from 'vue';
+import { defineProps, ref } from "vue";
 
 const props = defineProps({
   blok: { type: Object, default: null },
@@ -19,7 +18,6 @@ function toggleFAQ(index) {
     openFAQs.value.push(index);
   }
 }
-
 </script>
 <template>
   <div v-editable="blok">
@@ -39,10 +37,10 @@ function toggleFAQ(index) {
         >
           <div>
             <div
-              class="flex justify-between items-center mb-3 cursor-pointer" 
+              class="flex justify-between items-center mb-3 cursor-pointer"
               @click="toggleFAQ(index)"
             >
-            <!-- heading is here -->
+              <!-- heading is here -->
               <StoryblokHeading
                 class="font-jakarta font-semibold"
                 v-for="heading of item.headings"
@@ -51,10 +49,24 @@ function toggleFAQ(index) {
               <!-- icon is here -->
               <div>
                 <template v-if="isOpen(index)">
-                  <NuxtImg :src="item.image.filename" class="w-2.5"> </NuxtImg>
+                  <NuxtImg
+                    v-if="item.image.filename"
+                    format="webp"
+                    quality="100"
+                    :src="item.image.filename"
+                    class="w-2.5"
+                  >
+                  </NuxtImg>
                 </template>
                 <template v-else>
-                  <NuxtImg :src="item.image2.filename" class="w-4"> </NuxtImg>
+                  <NuxtImg
+                    v-if="item.image2.filename"
+                    format="webp"
+                    quality="100"
+                    :src="item.image2.filename"
+                    class="w-4"
+                  >
+                  </NuxtImg>
                 </template>
               </div>
             </div>

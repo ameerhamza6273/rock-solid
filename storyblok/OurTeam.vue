@@ -17,6 +17,9 @@ const props = defineProps({
         <div class="mt-3" v-for="value in blok.cards">
           <!-- our team image is here -->
           <NuxtImg
+            v-if="value.image.filename"
+            format="webp"
+            quality="100"
             :src="value.image.filename"
             class="w-[75%] mx-auto"
           ></NuxtImg>
@@ -27,7 +30,9 @@ const props = defineProps({
               v-for="heading of value.headings"
               :heading="heading"
             />
-          <p class="text-center text-base text-[#8e9196] mt-2">{{ value.subTitle }}</p>
+            <p class="text-center text-base text-[#8e9196] mt-2">
+              {{ value.subTitle }}
+            </p>
           </div>
         </div>
       </div>

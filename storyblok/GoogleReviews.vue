@@ -4,6 +4,8 @@
       <div class="self-center">
         <NuxtImg
           v-if="blok.image.filename"
+          format="webp"
+          quality="100"
           :src="blok.image.filename"
           :alt="blok.image.alt"
           width="150"
@@ -66,7 +68,7 @@
         >
         <p class="text-[#464646] text-base font-jakarta font-normal mt-3 pb-8">
           <template v-if="review.text">
-            {{truncateText(review.text, 24)}}
+            {{ truncateText(review.text, 24) }}
           </template>
           <template v-else
             >Fantastic service the driver was very helpful and we got the job
@@ -95,12 +97,12 @@ onMounted(async () => {
   console.log("response", limitedReviews);
 });
 
-function truncateText(text, maxWords){
-      const words = text.split(' ');
-      if (words.length > maxWords) {
-        return words.slice(0, maxWords).join(' ') + '...';
-      } else {
-        return text;
-      }
-    }
+function truncateText(text, maxWords) {
+  const words = text.split(" ");
+  if (words.length > maxWords) {
+    return words.slice(0, maxWords).join(" ") + "...";
+  } else {
+    return text;
+  }
+}
 </script>

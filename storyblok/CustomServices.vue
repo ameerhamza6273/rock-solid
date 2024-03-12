@@ -10,6 +10,9 @@
       <!-- image column is here -->
       <div class="mb-4 lg:min-w-[570px]">
         <NuxtImg
+          v-if="service.content.image.filename"
+          format="webp"
+          quality="100"
           :src="service.content.image.filename"
           :alt="service.content.image.alt"
           class="w-full"
