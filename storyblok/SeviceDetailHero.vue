@@ -22,13 +22,13 @@ const adjustWidth = computed(() => {
         :heading="heading"
         :class="adjustWidth"
       />
-      <div class="block md:flex max-w-[200px] md:max-w-[356px] mx-auto">
+      <article class="block md:flex max-w-[200px] md:max-w-[356px] mx-auto">
         <StoryblokBtn
               v-for="button of blok.actions"
               :button="button"
               class="font-jakarta mt-6 m-2"
             />
-      </div>
+      </article>
     </section>
   </div>
 </template>

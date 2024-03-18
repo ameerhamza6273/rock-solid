@@ -17,7 +17,7 @@ const props = defineProps({
     <section
       class="grid grid-cols-1 px-4 lg:grid-cols-2 gap-6 max-w-[1200px] mx-auto py-16"
     >
-      <div
+      <article
         v-for="value in blok.applicationForm"
         class="py-7 px-6 block lg:flex items-center justify-between shadow-[0_5px_30px_-15px_rgba(0,0,0,0.3)]"
       >
@@ -36,12 +36,19 @@ const props = defineProps({
           />
         </div>
         <!-- download button is here -->
-        <StoryblokBtn
+        <NuxtLink
+        :to="value.image2.filename"
+        target="_blank"
           v-for="button of value.actions"
-          :button="button"
-          class="font-jakarta mt-6 lg:mt-0"
-        />
-      </div>
+          class="flex gap-0 items-center mt-6 lg:mt-0 justify-center px-4 rounded-sm py-2 text-lg font-jakarta cursor-pointer transition-all duration-500 capitalize bg-primary text-white"
+          >{{ button.label }}
+          <NuxtImg
+            v-if="!!button?.icon.filename"
+            class="h-2.5 w-3 ml-2"
+            :src="button?.icon?.filename"
+          />
+        </NuxtLink>
+      </article>
     </section>
   </div>
 </template>

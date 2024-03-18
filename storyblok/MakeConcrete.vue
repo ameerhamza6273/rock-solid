@@ -5,7 +5,7 @@ const props = defineProps({
 </script>
 <template>
   <div v-editable="blok" class="bg-white">
-    <div class="px-4 py-20">
+    <section class="px-4 py-20">
       <!-- headings is here -->
       <div class="flex justify-center">
         <StoryblokHeading
@@ -21,12 +21,7 @@ const props = defineProps({
           :heading="heading"
         />
       </div>
-      <!-- image is here -->
-      <!-- <NuxtImg
-        :src="blok.image.filename"
-        class="max-w-[1000px] mx-auto w-full mt-14"
-      ></NuxtImg> -->
-
+      <!-- video is here -->
       <iframe
         class="max-w-[1000px] mx-auto w-full mt-14"
         width="560"
@@ -35,6 +30,6 @@ const props = defineProps({
         frameborder="0"
         allowfullscreen
       ></iframe>
-    </div>
+    </section>
   </div>
 </template>

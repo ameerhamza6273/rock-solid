@@ -24,7 +24,7 @@ const submitForm = () => {
   <div v-editable="blok" class="border-b-8 border-tertiary">
     <section class="max-w-[1000px] mx-auto py-8 px-4">
       <!-- tabs is here -->
-      <div
+      <article
         class="block md:flex mx-auto max-w-[246px] md:max-w-[100%] justify-between border-b"
       >
         <div
@@ -63,9 +63,9 @@ const submitForm = () => {
             class="w-[140px] h-[3px] bg-primary mt-3 ml-7 mb-[-8px]"
           ></div>
         </div>
-      </div>
+      </article>
       <!-- form is here -->
-      <div
+      <article
         v-show="activeTab !== null"
         class="max-w-[700px] mx-auto mt-16 mb-12 p-12 pb-14 shadow-2xl"
       >
@@ -172,7 +172,7 @@ const submitForm = () => {
             </button>
           </div>
         </form>
-      </div>
+      </article>
     </section>
   </div>
 </template>

@@ -1,11 +1,9 @@
 export default defineNuxtConfig({
   css: ["@/assets/css/roboto.css", "@/assets/css/main.css"],
-
   modules: [
     "@nuxt/image",
     'nuxt-swiper',
     "@nuxtjs/tailwindcss", '@nuxtjs/seo',
-
     [
       "@storyblok/nuxt",
       {

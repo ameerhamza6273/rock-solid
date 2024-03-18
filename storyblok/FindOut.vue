@@ -9,7 +9,7 @@
         v-for="heading of blok.headings"
         :heading="heading"
       />
-      <div class="px-10 md:px-0 mt-6 md:mt-0">
+      <article class="px-10 md:px-0 mt-6 md:mt-0">
         <div class="block md:flex items-center">
           <NuxtImg
             v-if="blok.image.filename"
@@ -25,7 +25,7 @@
           >
           </StoryblokBtn>
         </div>
-      </div>
+      </article>
     </section>
   </div>
 </template>

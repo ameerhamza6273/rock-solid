@@ -13,7 +13,7 @@ const props = defineProps({
         :heading="heading"
       />
       <!-- our team cards -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-8">
+      <article class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-8">
         <div class="mt-3" v-for="value in blok.cards">
           <!-- our team image is here -->
           <NuxtImg
@@ -35,7 +35,7 @@ const props = defineProps({
             </p>
           </div>
         </div>
-      </div>
+      </article>
       <StoryblokBtn
         v-for="button of blok.actions"
         :button="button"

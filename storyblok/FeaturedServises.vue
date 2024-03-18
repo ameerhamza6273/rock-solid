@@ -33,22 +33,23 @@ const modules = [Navigation, Pagination];
           1024: { slidesPerView: 3 }, // 3 slides on screens 768px and above
         }"
       >
-        <div class="parallax-slider-navigation cursor-pointer hidden md:block">
-          <div class="nav-indicator prevArrow">
+      <!-- navigation section -->
+        <section class="parallax-slider-navigation cursor-pointer hidden md:block">
+          <article class="nav-indicator prevArrow">
             <NuxtImg
               :src="blok.previmage.filename"
               :alt="blok.previmage.alt"
               class="w-10 absolute z-40 top-[47%] left-[-5px]"
             />
-          </div>
-          <div class="nav-indicator nextArrow">
+          </article>
+          <article class="nav-indicator nextArrow">
             <NuxtImg
               :src="blok.nextimage.filename"
               :alt="blok.nextimage.alt"
               class="w-10 absolute z-40 top-[47%] right-[-5px]"
             />
-          </div>
-        </div>
+          </article>
+        </section>
         <swiper-slide
           v-for="value in blok.services"
           :key="value.title"
@@ -87,15 +88,15 @@ const modules = [Navigation, Pagination];
   </div>
 </template>
 <style scoped>
-::v-deep .swiper-pagination-bullet {
+:deep(.swiper-pagination-bullet) {
   width: 11px;
   height: 11px;
   margin-right: 8px !important;
 }
-::v-deep .swiper-pagination-bullet-active {
+:deep(.swiper-pagination-bullet-active) {
   background-color: #ff6c2b !important ; /* Replace with your desired color */
 }
-::v-deep .swiper-pagination {
+:deep(.swiper-pagination) {
   margin-bottom: 0px;
 }
 
@@ -108,7 +109,7 @@ const modules = [Navigation, Pagination];
 }
 
 @media screen and (max-width: 780px) {
-  ::v-deep .swiper-pagination {
+  :deep(.swiper-pagination) {
     margin-left: 0px;
   }
 }

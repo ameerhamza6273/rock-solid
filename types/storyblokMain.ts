@@ -73,6 +73,7 @@ export interface storyblokButton {
     | "primary"
     | "primaryOutlined"
     | "secondary"
+    | "gradient"
     | "tertiary"
     | "text"
     | "icon";

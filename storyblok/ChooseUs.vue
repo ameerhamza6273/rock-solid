@@ -5,10 +5,10 @@ const props = defineProps({
 </script>
 <template>
   <div v-editable="blok" class="bg-[#F6F7FA]">
-    <section class="max-w-[1200px] mx-auto py-14 px-4">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-14">
+    <div class="max-w-[1200px] mx-auto py-14 px-4">
+      <section class="grid grid-cols-1 lg:grid-cols-2 gap-14">
         <!-- images section -->
-        <div class="relative">
+        <article class="relative">
           <NuxtImg
             v-if="blok.image1.filename"
             format="webp"
@@ -30,9 +30,9 @@ const props = defineProps({
             :src="blok.image3.filename"
             class="w-[60%] relative lg:mt-[-135px] md:mt-[-185px] mt-[-85px] ml-4 md:ml-6 z-30"
           ></NuxtImg>
-        </div>
+        </article>
         <!-- content section -->
-        <div class="self-center">
+        <article class="self-center">
           <StoryblokHeading
             class="font-jakarta mb-6"
             v-for="heading of blok.headings"
@@ -57,8 +57,8 @@ const props = defineProps({
             :button="button"
             class="max-w-[150px] font-jakarta mt-8"
           />
-        </div>
-      </div>
-    </section>
+        </article>
+      </section>
+    </div>
   </div>
 </template>

@@ -24,8 +24,8 @@ const modules = [Navigation, Pagination];
         :modules="modules"
       >
         <!-- prev and next icons -->
-        <div class="parallax-slider-navigation cursor-pointer hidden md:block">
-          <div class="nav-indicator prevArrow">
+        <section class="parallax-slider-navigation cursor-pointer hidden md:block">
+          <article class="nav-indicator prevArrow">
             <NuxtImg
               v-if="blok.previmage.filename"
               format="webp"
@@ -34,8 +34,8 @@ const modules = [Navigation, Pagination];
               :alt="blok.previmage.alt"
               class="w-12 absolute z-40 top-[46%] left-3"
             />
-          </div>
-          <div class="nav-indicator nextArrow">
+          </article>
+          <article class="nav-indicator nextArrow">
             <NuxtImg
               v-if="blok.nextimage.filename"
               format="webp"
@@ -44,8 +44,8 @@ const modules = [Navigation, Pagination];
               :alt="blok.nextimage.alt"
               class="w-12 absolute z-20 top-[46%] right-3"
             />
-          </div>
-        </div>
+          </article>
+        </section>
         <swiper-slide
           v-for="value in blok.heroslider"
           :key="value.title"
@@ -75,21 +75,21 @@ const modules = [Navigation, Pagination];
 </template>
 
 <style scoped>
-::v-deep .swiper-pagination-bullet {
+:deep(.swiper-pagination-bullet) {
   width: 11px;
   height: 11px;
   margin-right: 8px !important;
 }
-::v-deep .swiper-pagination-bullet-active {
+:deep(.swiper-pagination-bullet-active) {
   background-color: #ff6c2b !important ; /* Replace with your desired color */
 }
-::v-deep .swiper-pagination {
+:deep(.swiper-pagination) {
   text-align: left; /* Replace with your desired color */
   margin-left: 80px;
   margin-bottom: 18px;
 }
 @media screen and (max-width: 660px) {
-  ::v-deep .swiper-pagination {
+  :deep(.swiper-pagination) {
     margin-left: 17px;
     margin-bottom: 45px;
   }

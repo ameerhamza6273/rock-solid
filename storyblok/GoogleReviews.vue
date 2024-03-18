@@ -1,7 +1,7 @@
 <template>
   <div v-editable="blok" class="max-w-[1200px] mx-auto py-24 px-4">
-    <div class="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-5">
-      <div class="self-center">
+    <section class="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-5">
+      <article class="self-center">
         <NuxtImg
           v-if="blok.image.filename"
           format="webp"
@@ -36,9 +36,9 @@
           :button="button"
           class="max-w-[150px] font-jakarta mt-4 mx-auto"
         ></StoryblokBtn>
-      </div>
+      </article>
       <!-- google review cards is here -->
-      <div
+      <article
         v-for="review in limitedReviews"
         class="bg-white rounded-xl p-4 relative border"
       >
@@ -81,8 +81,8 @@
         >
           read more
         </NuxtLink>
-      </div>
-    </div>
+      </article>
+    </section>
   </div>
 </template>
 

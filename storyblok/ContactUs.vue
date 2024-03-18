@@ -8,9 +8,9 @@ const props = defineProps({
     v-editable="blok"
     class="lg:pt-20 pt-10 pb-28 border-b-2 border-[#696D73]"
   >
-    <section class="max-w-[1200px] mx-auto py-14 px-4">
-      <div class="grid grid-cols-5 gap-16">
-        <div class="col-span-5 md:col-span-2">
+    <div class="max-w-[1200px] mx-auto py-14 px-4">
+      <section class="grid grid-cols-5 gap-16">
+        <article class="col-span-5 md:col-span-2">
           <StoryblokHeading
             class="font-jakarta mb-3 font-semibold"
             v-for="heading of blok.headings"
@@ -82,12 +82,12 @@ const props = defineProps({
             v-for="heading of blok.closedText"
             :heading="heading"
           />
-        </div>
-        <div class="col-span-5 md:col-span-3">
+        </article>
+        <article class="col-span-5 md:col-span-3">
           <!-- form from FormSection component -->
           <FormSection v-for="form in blok.form" :form="form" />
-        </div>
-      </div>
-    </section>
+        </article>
+      </section>
+    </div>
   </div>
 </template>
