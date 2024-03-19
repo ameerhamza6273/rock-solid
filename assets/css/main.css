@@ -1,7 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500&family=Lato&family=Montserrat:wght@700&family=Open+Sans&family=Plus+Jakarta+Sans&family=Poppins:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500&family=Lato&family=Montserrat:wght@700&family=Open+Sans&family=Plus+Jakarta+Sans&family=Poppins:wght@500&display=swap");
 .screenContainer {
   @apply px-5 sm:px-6 md:px-10 lg:px-14 xl:px-32;
 }
+
+@import "/public/logosplash.png";
 
 .navContainer {
   @apply px-3 sm:px-6 md:px-10  lg:px-14 xl:px-32;
