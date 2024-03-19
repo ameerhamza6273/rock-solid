@@ -6,7 +6,8 @@
     >
       <StoryblokHeading
         class="font-jakarta max-w-[170px] md:max-w-[300px] mx-auto md:mx-0"
-        v-for="heading of blok.headings"
+        v-for="(heading, index) of blok.headings"
+        :key="index"
         :heading="heading"
       />
       <article class="px-10 md:px-0 mt-6 md:mt-0">
@@ -19,7 +20,8 @@
             class="h-16 md:mr-10 mx-auto"
           ></NuxtImg>
           <StoryblokBtn
-            v-for="button of blok.action"
+            v-for="(button, index) of blok.action"
+            :key="index"
             :button="button"
             class="font-jakarta max-w-[200px] mt-6 md:mt-0 mx-auto"
           >

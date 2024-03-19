@@ -1,10 +1,11 @@
 <template>
   <div v-editable="blok">
     <!-- heading section -->
-    <section class="py-14 lg:pt-20 px-4" :class="classBg">
+    <section class="py-140 px-4" :class="classBg">
       <StoryblokHeading
         class="font-jakarta mt-4 max-w-[620px] mx-auto"
-        v-for="heading of blok.headings"
+        v-for="(heading, index) of blok.headings"
+        :key="index"
         :heading="heading"
       />
     </section>
@@ -12,7 +13,11 @@
     <section
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-[1200px] px-4 mx-auto"
     >
-      <article v-for="value in blok.services" class="shadow-lg">
+      <article
+        v-for="(value, index) in blok.services"
+        :key="index"
+        class="shadow-lg"
+      >
         <nuxtImg
           v-if="value.content.image.filename"
           format="webp"
@@ -23,13 +28,17 @@
         <div class="p-5">
           <StoryblokHeading
             class="font-jakarta font-semibold"
-            v-for="heading of value.content.headings"
+            v-for="(heading, index) of value.content.headings"
+            :key="index"
             :heading="heading"
           />
-          <p class="text-[15px] mt-4 text-[#8e9196]">{{ value.content.subTitle }}</p>
+          <p class="text-[15px] mt-4 text-[#8e9196]">
+            {{ value.content.subTitle }}
+          </p>
           <StoryblokBtn
-            v-for="button of value.content.actions"
+            v-for="(button, index) of value.content.actions"
             :button="button"
+            :key="index"
             class="max-w-[120px] h-10 pt-2 font-jakarta mt-4"
           ></StoryblokBtn>
         </div>

@@ -16,7 +16,8 @@ const modules = [Navigation, Pagination];
     <section class="max-w-[1260px] mx-auto py-14 px-4 relative">
       <StoryblokHeading
         class="font-jakarta text-center mt-2"
-        v-for="heading of blok.headings"
+        v-for="(heading, index) of blok.headings"
+        :key="index"
         :heading="heading"
       />
       <!-- srvice sliders -->
@@ -65,11 +66,13 @@ const modules = [Navigation, Pagination];
           <div class="bg-white p-5 pt-52 mt-[-193px] card-body">
             <StoryblokHeading
               class="font-jakarta text-center font-semibold"
-              v-for="heading of value.content.headings"
+              v-for="(heading, index) of value.content.headings"
+              :key="index"
               :heading="heading"
             />
             <StoryblokBtn
-              v-for="button of value.content.actions"
+              v-for="(button, index) of value.content.actions"
+              :key="index"
               :button="button"
               class="max-w-[180px] font-jakarta mx-auto mt-3 btn"
             >
@@ -79,7 +82,8 @@ const modules = [Navigation, Pagination];
       </swiper>
       <!-- button is here -->
       <StoryblokBtn
-        v-for="button of blok.actions"
+        v-for="(button, index) of blok.actions"
+        :key="index"
         :button="button"
         class="max-w-[162px] font-jakarta mt-5 mx-auto"
       >

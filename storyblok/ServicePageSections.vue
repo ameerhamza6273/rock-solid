@@ -18,7 +18,8 @@ const classBg = computed(() => {
     <section class="py-20 lg:pt-32 px-4" :class="classBg">
       <StoryblokHeading
         class="font-jakarta mt-4 max-w-[660px] mx-auto"
-        v-for="heading of blok.headings"
+        v-for="(heading, index) of blok.headings"
+        :key="index"
         :heading="heading"
       />
     </section>

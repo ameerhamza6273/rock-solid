@@ -4,7 +4,7 @@ import { getFooterData, useFooterData } from "../composables/storyblok";
 import { Footer } from "../types/footer";
 import { CalendarIcon, EnvelopeIcon, PhoneIcon } from "@heroicons/vue/24/solid";
 
-const footerData: Ref<Footer> = useFooterData();
+const footerData: Footer = useFooterData();
 
 onMounted(async () => {
   await getFooterData();
@@ -13,13 +13,17 @@ onMounted(async () => {
 
 <template>
   <div v-editable="footerData" class="max-w-[1200px] mx-auto px-4 py-14">
-    <div class="grid grid-cols-6 gap-4" v-for="data in footerData?.body">
+    <div
+      class="grid grid-cols-6 gap-4"
+      v-for="(data, index) in footerData?.body"
+      :key="index"
+    >
       <!-- Areas Covered section is here -->
       <div class="col-span-6 md:col-span-3 lg:col-span-2">
         <h3 class="font-jakarta text-2xl font-bold text-black mb-3">
           Areas Covered
         </h3>
-        <div v-for="area in data.areas" class="mt-2">
+        <div v-for="(area, index) in data.areas" :key="index" class="mt-2">
           <NuxtLink class="text-[#5B5B5B] font-jakarta text-xl">
             {{ area.label }}
           </NuxtLink>
@@ -35,7 +39,10 @@ onMounted(async () => {
             </NuxtLink>
           </article>
           <article class="mt-2">
-            <NuxtLink :to="`tel:${data.phoneNumber}`" class="text-[#5B5B5B] font-jakarta text-xl">
+            <NuxtLink
+              :to="`tel:${data.phoneNumber}`"
+              class="text-[#5B5B5B] font-jakarta text-xl"
+            >
               {{ data.phoneNumber }}
             </NuxtLink>
           </article>
@@ -54,7 +61,7 @@ onMounted(async () => {
           Connect with Us
         </h6>
         <div class="flex justify-around max-w-[170px] lg:mx-auto mt-5">
-          <NuxtLink v-for="value in data.links"
+          <NuxtLink v-for="(value, index) in data.links" :key="index"
             ><NuxtImg :src="value.image.filename" class="h-10"></NuxtImg
           ></NuxtLink>
         </div>

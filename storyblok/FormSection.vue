@@ -2,7 +2,8 @@
   <div v-editable="blok">
     <StoryblokHeading
       class="font-jakarta mb-3"
-      v-for="heading of form.headings"
+      v-for="(heading, index) of form.headings"
+      :key="index"
       :heading="heading"
     />
     <!-- contact form is here -->
@@ -38,7 +39,8 @@
       <!-- Measurement inputs ie here -->
       <StoryblokHeading
         class="font-jakarta mt-5 font-semibold"
-        v-for="heading of form.Measurement"
+        v-for="(heading, index) of form.Measurement"
+        :key="index"
         :heading="heading"
       />
       <select
@@ -83,7 +85,8 @@
       <!--  concrete for inputs ie here -->
       <StoryblokHeading
         class="font-jakarta mt-5 font-semibold"
-        v-for="heading of form.concreteFor"
+        v-for="(heading, index) of form.concreteFor"
+        :key="index"
         :heading="heading"
       />
       <select
@@ -99,7 +102,8 @@
       <!-- require inputs ie here -->
       <StoryblokHeading
         class="font-jakarta mt-5 font-semibold"
-        v-for="heading of form.require"
+        v-for="(heading, index) of form.require"
+        :key="index"
         :heading="heading"
       />
       <select
@@ -118,7 +122,8 @@
       <!--  about us inputs ie here -->
       <StoryblokHeading
         class="font-jakarta mt-5 font-semibold"
-        v-for="heading of form.about"
+        v-for="(heading, index) of form.about"
+        :key="index"
         :heading="heading"
       />
       <select
@@ -132,7 +137,8 @@
       </select>
       <!-- submit btn -->
       <button
-        v-for="button of form.actions"
+        v-for="(button, index) of form.actions"
+        :key="index"
         :button="button"
         type="submit"
         class="max-w-[130px] px-8 rounded-sm py-2 text-lg font-jakarta mt-6 block cursor-pointer transition-all duration-500 capitalize bg-primary text-white"

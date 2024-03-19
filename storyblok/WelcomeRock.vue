@@ -12,7 +12,8 @@ const props = defineProps({
         <article class="self-center">
           <StoryblokHeading
             class="font-jakarta mt-4"
-            v-for="heading of blok.headings"
+            v-for="(heading, index) of blok.headings"
+            :key="index"
             :heading="heading"
           />
           <div class="text-lg text-black font-jakarta max-w-[520px] mt-3">

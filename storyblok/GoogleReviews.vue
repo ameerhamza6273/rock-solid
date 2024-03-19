@@ -22,7 +22,8 @@
         />
         <StoryblokHeading
           class="font-jakarta text-center font-semibold mt-3"
-          v-for="heading of blok.headings"
+          v-for="(heading, index) of blok.headings"
+          :key="index"
           :heading="heading"
         />
         <p
@@ -32,14 +33,16 @@
           <span class="text-[#2F2F2F] font-semibold">{{ blok.text2 }}</span>
         </p>
         <StoryblokBtn
-          v-for="button of blok.actions"
+          v-for="(button, index) of blok.actions"
+          :key="index"
           :button="button"
           class="max-w-[150px] font-jakarta mt-4 mx-auto"
         ></StoryblokBtn>
       </article>
       <!-- google review cards is here -->
       <article
-        v-for="review in limitedReviews"
+        v-for="(review, index) in limitedReviews"
+        :key="index"
         class="bg-white rounded-xl p-4 relative border"
       >
         <div class="flex items-center mb-3">

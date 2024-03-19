@@ -9,7 +9,8 @@ const props = defineProps({
     <section class="py-20 lg:pt-32 px-4 bg-[#F6F7FA]">
       <StoryblokHeading
         class="font-jakarta mt-4 max-w-[960px] mx-auto fixLineHeight"
-        v-for="heading of blok.headings"
+        v-for="(heading, index) of blok.headings"
+        :key="index"
         :heading="heading"
       />
     </section>
@@ -18,7 +19,8 @@ const props = defineProps({
       class="grid grid-cols-1 px-4 lg:grid-cols-2 gap-6 max-w-[1200px] mx-auto py-16"
     >
       <article
-        v-for="value in blok.applicationForm"
+        v-for="(value, index) in blok.applicationForm"
+        :key="index"
         class="py-7 px-6 block lg:flex items-center justify-between shadow-[0_5px_30px_-15px_rgba(0,0,0,0.3)]"
       >
         <div class="flex items-center">
@@ -31,15 +33,17 @@ const props = defineProps({
           ></NuxtImg>
           <StoryblokHeading
             class="font-jakarta ml-3 font-semibold"
-            v-for="heading of value.headings"
+            v-for="(heading, index) of value.headings"
+            :key="index"
             :heading="heading"
           />
         </div>
         <!-- download button is here -->
         <NuxtLink
-        :to="value.image2.filename"
-        target="_blank"
-          v-for="button of value.actions"
+          :to="value.image2.filename"
+          target="_blank"
+          v-for="(button, index) of value.actions"
+          :key="index"
           class="flex gap-0 items-center mt-6 lg:mt-0 justify-center px-4 rounded-sm py-2 text-lg font-jakarta cursor-pointer transition-all duration-500 capitalize bg-primary text-white"
           >{{ button.label }}
           <NuxtImg

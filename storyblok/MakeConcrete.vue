@@ -10,14 +10,16 @@ const props = defineProps({
       <div class="flex justify-center">
         <StoryblokHeading
           class="font-jakarta mb-4 ml-1 mr-1"
-          v-for="heading of blok.headings"
+          v-for="(heading, index) of blok.headings"
+          :key="index"
           :heading="heading"
         />
       </div>
       <div class="flex justify-center">
         <StoryblokHeading
           class="font-jakarta ml-1 mr-1"
-          v-for="heading of blok.headings2"
+          v-for="(heading, index) of blok.headings2"
+          :key="index"
           :heading="heading"
         />
       </div>

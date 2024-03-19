@@ -20,11 +20,16 @@ const props = defineProps({
       <article>
         <StoryblokHeading
           class="font-jakarta mb-7"
-          v-for="heading of blok.headings"
+          v-for="(heading, index) of blok.headings"
+          :key="index"
           :heading="heading"
         />
         <p class="font-jakarta text-base text-[#576A89]">{{ blok.text }}</p>
-        <ul v-for="value in blok.list" class="list-disc ml-4 mt-4">
+        <ul
+          v-for="(value, index) in blok.list"
+          :key="index"
+          class="list-disc ml-4 mt-4"
+        >
           <li class="font-jakarta text-base text-[#444850]">
             {{ value.text1 }}
           </li>

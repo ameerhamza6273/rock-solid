@@ -13,12 +13,13 @@ const props = defineProps({
         <article class="col-span-5 md:col-span-2">
           <StoryblokHeading
             class="font-jakarta mb-3 font-semibold"
-            v-for="heading of blok.headings"
+            v-for="(heading, index) of blok.headings"
+            :key="index"
             :heading="heading"
           />
           <p class="font-jakarta mb-4">{{ blok.text }}</p>
           <!-- iconbox is here -->
-          <div v-for="value in blok.iconbox" class="">
+          <div v-for="(value, index) in blok.iconbox" :key="index">
             <div class="flex mt-2">
               <NuxtImg
                 v-if="value.image.filename"
@@ -30,14 +31,15 @@ const props = defineProps({
               <div>
                 <StoryblokHeading
                   class="font-jakarta"
-                  v-for="heading of value.headings"
+                  v-for="(heading, index) of value.headings"
+                  :key="index"
                   :heading="heading"
                 />
               </div>
             </div>
           </div>
           <!-- timer box is here -->
-          <div v-for="value in blok.time" class="">
+          <div v-for="(value, index) in blok.time" :key="index">
             <div class="flex mt-2">
               <NuxtImg
                 v-if="value.image.filename"
@@ -51,7 +53,8 @@ const props = defineProps({
               >
                 <StoryblokHeading
                   class="font-jakarta"
-                  v-for="heading of value.headings"
+                  v-for="(heading, index) of value.headings"
+                  :key="index"
                   :heading="heading"
                 />
                 <span class="font-jakarta text-black text-lg">{{
@@ -65,7 +68,8 @@ const props = defineProps({
           <div class="flex">
             <StoryblokHeading
               class="font-jakarta mt-14 font-bold mr-1"
-              v-for="heading of blok.outOfHours"
+              v-for="(heading, index) of blok.outOfHours"
+              :key="index"
               :heading="heading"
             />
           </div>
@@ -73,19 +77,21 @@ const props = defineProps({
           <!-- closed section heading -->
           <StoryblokHeading
             class="font-jakarta mt-14 mb-5 font-semibold"
-            v-for="heading of blok.headingClosed"
+            v-for="(heading, index) of blok.headingClosed"
+            :key="index"
             :heading="heading"
           />
           <!-- closed section text -->
           <StoryblokHeading
             class="font-jakarta mt-2"
-            v-for="heading of blok.closedText"
+            v-for="(heading, index) of blok.closedText"
+            :key="index"
             :heading="heading"
           />
         </article>
         <article class="col-span-5 md:col-span-3">
           <!-- form from FormSection component -->
-          <FormSection v-for="form in blok.form" :form="form" />
+          <FormSection v-for="(form, index) in blok.form" :key="index" :form="form" />
         </article>
       </section>
     </div>

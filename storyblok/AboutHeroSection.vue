@@ -12,10 +12,11 @@ const props = defineProps({
         <article class="self-center">
           <StoryblokHeading
             class="font-jakarta"
-            v-for="heading of blok.headings"
+            v-for="(heading, index) of blok.headings"
+            :key="index"
             :heading="heading"
           />
-          <ul v-for="value in blok.iconBox">
+          <ul v-for="(value, index) in blok.iconBox" :key="index">
             <li
               class="flex items-center mt-4 font-jakarta text-base lg:text-lg font-medium text-[#576A89]"
             >
@@ -23,7 +24,8 @@ const props = defineProps({
             </li>
           </ul>
           <StoryblokBtn
-            v-for="button of blok.actions"
+            v-for="(button, index) of blok.actions"
+            :key="index"
             :button="button"
             class="max-w-[150px] font-jakarta mt-6"
           />

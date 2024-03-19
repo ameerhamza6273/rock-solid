@@ -7,7 +7,8 @@
      <article  class="w-[100%] md:w-[55%] self-center mt-10 md:mt-0">
         <StoryblokHeading
         class="font-jakarta font-semibold"
-        v-for="heading of blok.headings"
+        v-for="(heading, index) of blok.headings"
+        :key="index"
         :heading="heading"
       />
       <p class="text-[15px] mt-4 text-[#8e9196] max-w-[550px]">{{ blok.subTitle }}</p>

@@ -6,7 +6,8 @@
     >
       <StoryblokHeading
         class="font-jakarta text-center md:text-left"
-        v-for="heading of blok.headings"
+        v-for="(heading, index) of blok.headings"
+        :key="index"
         :heading="heading"
       />
       <article class="mt-6 md:mt-0">

@@ -24,7 +24,8 @@ function toggleFAQ(index) {
     <section class="pt-20 px-4">
       <StoryblokHeading
         class="font-jakarta mt-4"
-        v-for="heading of blok.headings"
+        v-for="(heading, index) of blok.headings"
+        :key="index"
         :heading="heading"
       />
       <!-- faqs is here  -->
@@ -42,7 +43,8 @@ function toggleFAQ(index) {
             <!-- heading is here -->
             <StoryblokHeading
               class="font-jakarta font-semibold"
-              v-for="heading of item.headings"
+              v-for="(heading, index) of item.headings"
+              :key="index"
               :heading="heading"
             />
             <!-- icon is here -->

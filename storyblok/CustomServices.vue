@@ -22,7 +22,8 @@
       <article class="self-center lg:col-span-3 md:col-span-3 sm:col-span-1">
         <StoryblokHeading
           class="font-jakarta mb-6 max-w-[450px] fixLineHeight"
-          v-for="heading of service.content.headings"
+          v-for="(heading, index) of service.content.headings"
+          :key="index"
           :heading="heading"
         />
         <p
@@ -32,7 +33,11 @@
         </p>
         <!-- button is here -->
         <section class="mt-7">
-          <Btn v-for="value of service.content.action" :btnContent="value" />
+          <Btn
+            v-for="(value, index) of service.content.action"
+            :key="index"
+            :btnContent="value"
+          />
         </section>
       </article>
     </section>
