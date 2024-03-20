@@ -113,7 +113,7 @@ function resetForm() {
         v-show="activeTab !== null"
         class="max-w-[700px] mx-auto mt-16 mb-12 p-12 pb-14 shadow-2xl"
       >
-      {{ activeTab }}
+      
         <form @submit.prevent="submitForm">
           <div class="block md:flex items-center gap-2">
             <label
