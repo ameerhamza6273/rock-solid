@@ -8,17 +8,60 @@ const lengthInput = ref("222");
 const widthInput = ref("222");
 const depthInput = ref("222");
 const quantityInput = ref("222");
+const lengthSelect = ref("M"); // Default to 'M'
+const widthSelect = ref("M"); // Default to 'M'
+const depthSelect = ref("M"); // Default to 'M'
+const totalConcrete = ref(null);
 
 const activateTab = (index: number) => {
   activeTab.value = index;
 };
 
-const submitForm = () => {
-  props.blok.tabs[activeTab.value].submitted = true;
-  if (activeTab.value < props.blok.tabs.length - 1) {
-    activeTab.value++;
+function submitForm() {
+  const length = parseFloat(lengthInput.value);
+  const width = parseFloat(widthInput.value);
+  const depth = parseFloat(depthInput.value);
+  const quantity = parseInt(quantityInput.value);
+
+  if (isNaN(length) || isNaN(width) || isNaN(depth) || isNaN(quantity)) {
+    alert("Please enter valid numbers for length, width, depth, and quantity.");
+    return;
   }
-};
+
+  // Calculate total concrete needed based on inputs
+  let volume = length * width * depth;
+  let multiplier = getMultiplier(lengthSelect.value) + getMultiplier(widthSelect.value) + getMultiplier(depthSelect.value);
+  totalConcrete.value = volume * multiplier * quantity;
+}
+
+function getMultiplier(side) {
+  switch (side) {
+    case 'M':
+      return 1.5;
+    case 'C':
+      return 1.25;
+    case 'I':
+      return 1.0;
+    case 'F':
+      return 0.8;
+    case 'Y':
+      return 0.75;
+    default:
+      return 1.0;
+  }
+}
+
+function resetForm() {
+  lengthInput.value = '';
+  widthInput.value = '';
+  depthInput.value = '';
+  lengthSelect.value = 'M';
+  widthSelect.value = 'M';
+  depthSelect.value = 'M';
+  quantityInput.value = '';
+  totalConcrete.value = null;
+}
+
 </script>
 <template>
   <div v-editable="blok" class="border-b-8 border-tertiary">
@@ -52,8 +95,8 @@ const submitForm = () => {
                   'text-primary opacity-[9.9]': activeTab === index,
                   'mr-2': index < blok.tabs.length - 1,
                 }"
-                v-for="(heading, index) of tab.headings"
-                :key="index"
+                v-for="heading of tab.headings"
+                :key="heading.label"
                 :heading="heading"
               />
             </div>
@@ -70,6 +113,7 @@ const submitForm = () => {
         v-show="activeTab !== null"
         class="max-w-[700px] mx-auto mt-16 mb-12 p-12 pb-14 shadow-2xl"
       >
+      {{ activeTab }}
         <form @submit.prevent="submitForm">
           <div class="block md:flex items-center gap-2">
             <label
@@ -88,10 +132,14 @@ const submitForm = () => {
               />
               <select
                 id="length"
+                v-model="lengthSelect"
                 class="border border-black px-3 py-2 w-full font-jakarta"
               >
-                <option selected value="">M</option>
-                <option value="US">L</option>
+                <option value="M">M</option>
+                <option value="C">C</option>
+                <option value="I">I</option>
+                <option value="F">F</option>
+                <option value="Y">Y</option>
               </select>
             </div>
           </div>
@@ -112,10 +160,14 @@ const submitForm = () => {
               />
               <select
                 id="length"
+                v-model="widthSelect"
                 class="border border-black px-3 py-2 w-full font-jakarta"
               >
-                <option selected value="">M</option>
-                <option value="US">L</option>
+                <option value="M">M</option>
+                <option value="C">C</option>
+                <option value="I">I</option>
+                <option value="F">F</option>
+                <option value="Y">Y</option>
               </select>
             </div>
           </div>
@@ -136,10 +188,14 @@ const submitForm = () => {
               />
               <select
                 id="length"
+                v-model="depthSelect"
                 class="border border-black px-3 py-2 w-full font-jakarta"
               >
-                <option selected value="">M</option>
-                <option value="US">L</option>
+                <option value="M">M</option>
+                <option value="C">C</option>
+                <option value="I">I</option>
+                <option value="F">F</option>
+                <option value="Y">Y</option>
               </select>
             </div>
           </div>
@@ -166,13 +222,17 @@ const submitForm = () => {
               Calculate
             </button>
             <button
-              type="reset"
+              type="button"
+              @click="resetForm"
               class="max-w-[100px] px-5 py-2 text-lg font-jakarta mt-8 block cursor-pointer bg-white text-primary border-primary border"
             >
               Reset
             </button>
           </div>
         </form>
+        <div class="result" v-if="totalConcrete !== null">
+          Total Concrete Needed: {{ totalConcrete.toFixed(2) }} cubic meters
+        </div>
       </article>
     </section>
   </div>
