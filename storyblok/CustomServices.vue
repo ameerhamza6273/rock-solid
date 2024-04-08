@@ -3,21 +3,16 @@ import { onMounted, ref } from "vue";
 import storyblokApi from "../plugin/useStoryblokApi";
 
 const servives = ref([]);
-
 onMounted(async () => {
   try {
     const { data } = await storyblokApi.get("cdn/stories", {
       version: "draft",
       resolve_links: "url",
-      starts_with: "services/", // Fetch stories starting with "services/"
+      starts_with: "services/",
     });
-
-    // Filter out stories that are in the "services" folder
     const servicesStories = data.stories.filter((story) =>
       story.full_slug.startsWith("services/")
     );
-
-    // Extract from each story and push to services array
     servives.value = servicesStories.map((story) => story);
   } catch (error) {
     console.error("Error in fetching services", error);
