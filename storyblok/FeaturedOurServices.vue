@@ -18,7 +18,7 @@ const props = defineProps({
         :heading="heading"
       />
     </section>
-    <!-- services card section -->
+    <!-- services cards component -->
     <ServiceCards />
   </div>
 </template>
