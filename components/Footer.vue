@@ -2,7 +2,6 @@
 import { ref, onMounted, Ref } from "vue";
 import { getFooterData, useFooterData } from "../composables/storyblok";
 import { Footer } from "../types/footer";
-import { CalendarIcon, EnvelopeIcon, PhoneIcon } from "@heroicons/vue/24/solid";
 
 const footerData: Footer = useFooterData();
 

@@ -28,3 +28,4 @@ export async function getFooterData() {
     console.log("error in getting nav data", error);
   }
 }
+

@@ -1,15 +1,24 @@
-<!-- <script setup lang="ts">
+<script setup lang="ts">
 import { getInstaPosts } from "../composables/instaFeed";
 import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
 const { slug } = useRoute().params;
-
-const url = slug && slug.length > 0 ? slug.join("/") : "home";
+let slugArray: string[];
+if (typeof slug === 'string') {
+    slugArray = [slug];
+} else {
+    slugArray = slug;
+}
+const url = slug && slug.length > 0 ? slugArray.join("/") : "home";
 
 const isPreview = useRuntimeConfig().public.NODE_ENV !== "production";
 
 // const { locale } = useI18n();
-const resolveRelations = ["featuredServises.services","allServices.services","featuredOurServices.services","featuredProducts.products",
+const resolveRelations = [
+  "featuredServises.services",
+  "allServices.services",
+  "featuredOurServices.services",
+  "featuredProducts.products",
 ];
 const show = ref(true);
 
@@ -63,10 +72,10 @@ useSeoMeta({
   <SplashScreen v-if="show" />
 
   <StoryblokComponent v-if="pending === false && story" :blok="story.content" />
-</template> -->
+</template>
 
 
-<script setup>
+<!-- <script setup>
 import { getInstaPosts } from "../composables/instaFeed";
 
 const { slug } = useRoute().params;
@@ -122,4 +131,4 @@ useSeoMeta({
 
 <template>
   <StoryblokComponent v-if="pending === false && story" :blok="story.content" />
-</template>
+</template> -->

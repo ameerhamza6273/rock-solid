@@ -1,7 +1,14 @@
+<script setup lang="ts">
+import { featuredOurServices } from "../types/featuredOurServices";
+import { PropType } from "vue";
+const props = defineProps({
+  blok: { type: Object as PropType<featuredOurServices>, default: null },
+});
+</script>
 <template>
   <div v-editable="blok">
     <!-- heading section -->
-    <section class="py-140 px-4" :class="classBg">
+    <section class="py-14 px-4">
       <StoryblokHeading
         class="font-jakarta mt-4 max-w-[620px] mx-auto"
         v-for="(heading, index) of blok.headings"
@@ -46,9 +53,3 @@
     </section>
   </div>
 </template>
-
-<script setup lang="ts">
-const props = defineProps({
-  blok: { type: Object, default: null },
-});
-</script>

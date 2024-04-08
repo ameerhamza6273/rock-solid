@@ -1,3 +1,10 @@
+<script setup lang="ts">
+import { featuredProducts } from "../types/featuredProducts";
+import { PropType } from "vue";
+const props = defineProps({
+  blok: { type: Object as PropType<featuredProducts>, default: null },
+});
+</script>
 <template>
   <div v-editable="blok" class="max-w-[1200px] mx-auto">
     <!-- housing heading -->
@@ -45,8 +52,3 @@
   </div>
 </template>
 
-<script setup lang="ts">
-const props = defineProps({
-  blok: { type: Object, default: null },
-});
-</script>

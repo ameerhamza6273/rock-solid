@@ -1,24 +1,3 @@
-<template>
-  <div
-    :class="classes"
-    class="cursor-pointer transition-all duration-500 capitalize"
-  >
-    <NuxtLink
-      v-if="button?.type != 'icon'"
-      class="flex gap-0 items-center justify-center"
-      :to="button?.link.cached_url"
-    >
-      {{ button?.label }}
-      <NuxtImg
-        v-if="!!button?.icon.filename"
-        class="h-2 w-2.5 ml-2"
-        :src="button?.icon?.filename"
-      />
-    </NuxtLink>
-    <NuxtImg v-else :src="button?.icon.filename" />
-  </div>
-</template>
-
 <script setup lang="ts">
 import { computed, PropType } from "vue";
 import { storyblokButton } from "../../types/storyblokMain";
@@ -62,5 +41,26 @@ const classes = computed(() => {
   ];
 });
 </script>
+
+<template>
+  <div
+    :class="classes"
+    class="cursor-pointer transition-all duration-500 capitalize"
+  >
+    <NuxtLink
+      v-if="button?.type != 'icon'"
+      class="flex gap-0 items-center justify-center"
+      :to="button?.link.cached_url"
+    >
+      {{ button?.label }}
+      <NuxtImg
+        v-if="!!button?.icon.filename"
+        class="h-2 w-2.5 ml-2"
+        :src="button?.icon?.filename"
+      />
+    </NuxtLink>
+    <NuxtImg v-else :src="button?.icon.filename" />
+  </div>
+</template>
 
 <style scoped></style>

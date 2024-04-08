@@ -1,8 +1,7 @@
-import { storyblokAsset, storyblokAction, storyblokHeadings } from "./storyblokMain";
+import { storyblokHeadings, storyblokAsset} from "./storyblokMain"
 
-export interface products {
+export interface storyblokProducts {
   image: storyblokAsset;
   headings: storyblokHeadings[];
-  subTitle:string;
-  actions: storyblokAction[];
+  subTitle: string;
 }

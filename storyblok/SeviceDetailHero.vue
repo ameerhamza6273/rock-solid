@@ -1,8 +1,11 @@
 <script setup lang="ts">
-import { computed } from "vue";
+
+import { seviceDetailHero } from "../types/seviceDetailHero";
+import { PropType , computed } from "vue";
 const props = defineProps({
-  blok: { type: Object, default: null },
+  blok: { type: Object as PropType<seviceDetailHero>, default: null },
 });
+
 const adjustWidth = computed(() => {
   return [
     {
@@ -13,7 +16,7 @@ const adjustWidth = computed(() => {
 });
 </script>
 <template>
-  <div v-editable="blok" class="bg-[#F6F7FA]">
+  <div v-editable="blok" class="bg-bgGray">
     <!-- service detail page hero section is here -->
     <section class="py-20 lg:pt-32 px-4 max-w-[1100px] mx-auto">
       <StoryblokHeading

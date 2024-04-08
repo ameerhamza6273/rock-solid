@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import { contactUs } from "../types/contactUs";
+import { PropType } from "vue";
 const props = defineProps({
-  blok: { type: Object, default: null },
+  blok: { type: Object as PropType<contactUs>, default: null },
 });
 </script>
 <template>

@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { defineProps, ref } from "vue";
+import { defineProps, ref , PropType } from "vue";
 
+import { faqSection } from "../types/faqSection";
 const props = defineProps({
-  blok: { type: Object, default: null },
+  blok: { type: Object as PropType<faqSection>, default: null },
 });
 
 const openFAQs = ref([0]);

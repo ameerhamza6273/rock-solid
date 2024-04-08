@@ -44,6 +44,7 @@ const props = defineProps({
       class="text-[#143213] border-[1px] border-[#143213]"
         :class="!!i ? 'hidden' : ''"
         v-for="(button, i) of navData.actions"
+        :key="i"
         :button="button"
       />
     </section>

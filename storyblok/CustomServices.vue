@@ -1,6 +1,14 @@
+<script setup lang="ts">
+import { customServices } from "../types/customServices";
+import { PropType } from "vue";
+const props = defineProps({
+  service: { type: Object as PropType<customServices>, default: null },
+  index: { type: Number, required: true },
+});
+</script>
 <template>
   <div
-    class="pt-10 pb-4 relative h-full bg-[#F6F7FA]"
+    class="pt-10 pb-4 relative h-full bg-bgGray"
     :class="{ 'bg-white': index % 2 !== 1 }"
   >
     <section
@@ -43,11 +51,6 @@
     </section>
   </div>
 </template>
-
-<script setup>
-defineProps({ service: Object, index: Number });
-const LineHeight = "62px";
-</script>
 
 <style scoped>
 .fixLineHeight {

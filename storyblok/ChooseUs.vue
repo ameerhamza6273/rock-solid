@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import { storyblokChooseUs} from "../types/chooseUs"
+import { PropType} from "vue"
 const props = defineProps({
-  blok: { type: Object, default: null },
+  blok: { type: Object as PropType<storyblokChooseUs>, default: null },
 });
 </script>
 <template>
-  <div v-editable="blok" class="bg-[#F6F7FA]">
+  <div v-editable="blok" class="bg-bgGray">
     <div class="max-w-[1200px] mx-auto py-14 px-4">
       <section class="grid grid-cols-1 lg:grid-cols-2 gap-14">
         <!-- images section -->
@@ -41,7 +43,7 @@ const props = defineProps({
           />
           <ul v-for="(value, index) in blok.iconBox" :key="index">
             <li
-              class="flex items-center mt-4 font-jakarta text-base font-medium text-[#576A89]"
+              class="flex items-center mt-4 font-jakarta text-base font-medium text-textGray2"
             >
               <NuxtImg
                 v-if="value.image.filename"

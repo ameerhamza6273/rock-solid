@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import { aboutHeroSection} from "../types/aboutHeroSection"
+import { PropType} from "vue"
 const props = defineProps({
-  blok: { type: Object, default: null },
+  blok: { type: Object as PropType<aboutHeroSection>, default: null },
 });
 </script>
 <template>
-  <div v-editable="blok" class="bg-[#F6F7FA] lg:pt-20 pt-10">
+  <div v-editable="blok" class="bg-bgGray lg:pt-20 pt-10">
     <!-- About page hero section is here -->
     <div class="max-w-[1200px] mx-auto py-14 px-4">
       <section class="grid grid-cols-1 lg:grid-cols-2 gap-14">
@@ -18,7 +20,7 @@ const props = defineProps({
           />
           <ul v-for="(value, index) in blok.iconBox" :key="index">
             <li
-              class="flex items-center mt-4 font-jakarta text-base lg:text-lg font-medium text-[#576A89]"
+              class="flex items-center mt-4 font-jakarta text-base lg:text-lg font-medium text-textGray2"
             >
               {{ value.text }}
             </li>

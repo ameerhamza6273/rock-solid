@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import { conditions } from "../types/conditions";
+import { PropType } from "vue";
 const props = defineProps({
-  blok: { type: Object, default: null },
+  blok: { type: Object as PropType<conditions>, default: null },
 });
 </script>
 <template>

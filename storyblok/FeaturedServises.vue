@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import { featuredServices } from "../types/featuredServises";
+import { PropType } from "vue";
 const props = defineProps({
-  blok: { type: Object, default: null },
+  blok: { type: Object as PropType<featuredServices>, default: null },
 });
 
 import { Swiper, SwiperSlide } from "swiper/vue";
@@ -12,7 +14,7 @@ import { Navigation, Pagination } from "swiper/modules";
 const modules = [Navigation, Pagination];
 </script>
 <template>
-  <div v-editable="blok" class="bg-[#F6F7FA]">
+  <div v-editable="blok" class="bg-bgGray">
     <section class="max-w-[1260px] mx-auto py-14 px-4 relative">
       <StoryblokHeading
         class="font-jakarta text-center mt-2"

@@ -53,7 +53,7 @@ const modules = [Navigation, Pagination];
         <swiper-slide
           v-for="value in blok.heroslider"
           :key="value.title"
-          class="mySlider px-4 md:px-16 w-[100%] h-[100%] relative bg-cover bg-[#F6F7FA] bg-center md:bg-bottom lg:center xl:bg-center bg-[url('https://storage.googleapis.com/msgsndr/MLvKvVyGos8j4OV4y4Zt/media/65cdbf71190e878f92f457ff.png')] md:bg-[url('https://storage.googleapis.com/msgsndr/YxAHM5dU3e0Y8xUZ6ldI/media/65c5fec46c059cbda18375db.png')]"
+          class="mySlider px-4 md:px-16 w-[100%] h-[100%] relative bg-cover bg-bgGray bg-center md:bg-bottom lg:center xl:bg-center bg-[url('https://storage.googleapis.com/msgsndr/MLvKvVyGos8j4OV4y4Zt/media/65cdbf71190e878f92f457ff.png')] md:bg-[url('https://storage.googleapis.com/msgsndr/YxAHM5dU3e0Y8xUZ6ldI/media/65c5fec46c059cbda18375db.png')]"
         >
           <div
             class="h-[75vh] md:h-screen md:max-h-[375px] lg:max-h-[490px] xl:max-h-[580px] flex"

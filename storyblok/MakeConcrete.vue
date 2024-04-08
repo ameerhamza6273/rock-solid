@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import { makeConcrete } from "../types/makeConcrete";
+import { PropType } from "vue";
 const props = defineProps({
-  blok: { type: Object, default: null },
+  blok: { type: Object as PropType<makeConcrete>, default: null },
 });
 </script>
 <template>

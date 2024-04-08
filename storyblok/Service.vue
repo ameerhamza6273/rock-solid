@@ -6,7 +6,6 @@ const props = defineProps({
   blok: { type: Object as PropType<storyblokService>, default: null },
 });
 </script>
-
 <template>
   <div
     v-editable="blok"
@@ -18,13 +17,13 @@ const props = defineProps({
       </article>
       <article class="w-[100%] md:w-[55%] self-center mt-10 md:mt-0">
         <StoryblokHeading
-          class="font-jakarta font-semibold"
+          class="font-jakarta mb-6 max-w-[450px] fixLineHeight"
           v-for="(heading, index) of blok.headings"
           :key="index"
           :heading="heading"
         />
         <p class="text-[15px] mt-4 text-[#8e9196] max-w-[550px]">
-          {{ blok.subTitle }}
+          {{ blok.text }}
         </p>
         <!-- <StoryblokBtn
         v-for="button of blok.actions"
@@ -35,3 +34,15 @@ const props = defineProps({
     </section>
   </div>
 </template>
+
+
+<style scoped>
+.fixLineHeight {
+  line-height: 62px;
+}
+@media screen and (max-width: 600px) {
+  .fixLineHeight {
+    line-height: 32px;
+  }
+}
+</style>

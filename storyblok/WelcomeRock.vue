@@ -1,7 +1,10 @@
 <script setup lang="ts">
+import { welcomeRock } from "../types/welcomeRock";
+import { PropType } from "vue";
 const props = defineProps({
-  blok: { type: Object, default: null },
+  blok: { type: Object as PropType<welcomeRock>, default: null },
 });
+
 </script>
 <template>
   <div v-editable="blok" class="bg-white">

@@ -23,6 +23,7 @@ module.exports = {
         borderColor: "#D9D9D9",
 
         bgColor: "#2F6CC8",
+        bgGray: "#F6F7FA",
 
         icon: "#8C8C8C",
         text1: "#404040",

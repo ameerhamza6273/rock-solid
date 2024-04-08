@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import { storyblokRockFlow} from "../types/rockFlow"
+import { PropType} from "vue"
 const props = defineProps({
-  blok: { type: Object, default: null },
+  blok: { type: Object as PropType<storyblokRockFlow>, default: null },
 });
 </script>
 <template>
-  <div v-editable="blok" class="py-20 px-4 bg-[#F6F7FA]">
+  <div v-editable="blok" class="py-20 px-4 bg-bgGray">
     <!-- Rockflow – Constituents and Design Project (content) section -->
     <section
       class="flex flex-col gap-20 lg:flex-row md:max-w-[1110px] md:mx-auto md:items-center"

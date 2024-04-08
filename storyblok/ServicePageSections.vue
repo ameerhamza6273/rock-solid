@@ -7,7 +7,7 @@ const classBg = computed(() => {
   return [
     {
       "bg-white": props.blok?.bgColor == "white",
-      "bg-[#F6F7FA]": props.blok?.bgColor == "gray1",
+      "bg-bgGray": props.blok?.bgColor == "gray1",
     },
   ];
 });

@@ -1,3 +1,10 @@
+<script setup lang="ts">
+import { storyblokKeyPlaceOrder } from "../types/placeOrder";
+import { PropType } from "vue";
+const props = defineProps({
+  blok: { type: Object as PropType<storyblokKeyPlaceOrder>, default: null },
+});
+</script>
 <template>
   <div class="bg-[#2F6CC8] px-4 py-10" v-editable="blok">
     <!-- place order section is here -->
@@ -36,8 +43,4 @@
   </div>
 </template>
 
-<script setup lang="ts">
-const props = defineProps({
-  blok: { type: Object, default: null },
-});
-</script>
+

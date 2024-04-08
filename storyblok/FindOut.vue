@@ -1,3 +1,10 @@
+<script setup lang="ts">
+import { storyblokFindOut } from "../types/findOut";
+import { PropType } from "vue";
+const props = defineProps({
+  blok: { type: Object as PropType<storyblokFindOut>, default: null },
+});
+</script>
 <template>
   <div class="bg-[#2F6CC8] px-4 py-10" v-editable="blok">
     <!-- find out section is here -->
@@ -31,9 +38,3 @@
     </section>
   </div>
 </template>
-
-<script setup lang="ts">
-const props = defineProps({
-  blok: { type: Object, default: null },
-});
-</script>

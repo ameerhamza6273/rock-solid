@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import { storyblokOurTeam } from "../types/ourTeam";
+import { PropType } from "vue";
 const props = defineProps({
-  blok: { type: Object, default: null },
+  blok: { type: Object as PropType<storyblokOurTeam>, default: null },
 });
 </script>
 <template>
-  <div v-editable="blok" class="bg-[#F6F7FA]">
+  <div v-editable="blok" class="bg-bgGray">
     <section class="max-w-[1200px] mx-auto py-14 px-4">
       <!-- our team heading is here -->
       <StoryblokHeading

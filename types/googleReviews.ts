@@ -1,18 +1,22 @@
-import { storyblokButton } from "./storyblokMain";
+import { storyblokButton , storyblokAsset, storyblokHeadings } from "./storyblokMain";
+export interface storyblokGoogleReview {
+  raiting: storyblokAsset;
+  text1: string;
+  text2: string;
+  image: storyblokAsset;
+  headings: storyblokHeadings[];
+  actions: storyblokButton[];
+}
+
 export interface googleReview {
   author_name: string;
   author_url: string;
   language: string;
   original_language: string;
   profile_photo_url: string;
-  rating: number;
   relative_time_description: string;
-  text: string;
   time: number;
   translated: false;
-}
-
-export interface storyblokReviewsSection {
-  topActions: storyblokButton;
-  bottomActions: storyblokButton;
+  text: string;
+  rating: number;
 }

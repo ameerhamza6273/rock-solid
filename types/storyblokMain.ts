@@ -66,7 +66,15 @@ export interface storyblokAction {
 }
 
 export interface storyblokButton {
-  link: string;
+  link: {
+    url: string;
+    cached_url: string;
+    story: {
+      name: string;
+      slug: string;
+      url: string;
+    };
+  };
   label: string;
   size: "sm" | "md" | "lg";
   type:

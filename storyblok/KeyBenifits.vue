@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import { storyblokKeyBenifits} from "../types/keyBenifits"
+import { PropType} from "vue"
 const props = defineProps({
-  blok: { type: Object, default: null },
+  blok: { type: Object as PropType<storyblokKeyBenifits>, default: null },
 });
 </script>
 <template>

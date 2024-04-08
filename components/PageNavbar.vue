@@ -3,7 +3,6 @@ import { ref, onMounted, Ref } from "vue";
 import { getNavData, useNavData } from "../composables/storyblok";
 import { storyblokLink } from "../utils/storyblokLink";
 import { storyblokNavbar } from "../types/navbar";
-import { CalendarIcon, EnvelopeIcon, PhoneIcon } from "@heroicons/vue/24/solid";
 
 const navData: storyblokNavbar = useNavData();
 

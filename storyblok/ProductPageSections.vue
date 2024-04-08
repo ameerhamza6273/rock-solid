@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import { productsPageSections } from "../types/productPageSections";
+import { PropType } from "vue";
 const props = defineProps({
-  blok: { type: Object, default: null },
+  blok: { type: Object as PropType<productsPageSections>, default: null },
 });
 </script>
 <template>

@@ -1,8 +1,18 @@
-import { storyblokAsset, storyblokHeadings, storyblokButton } from "../types/storyblokMain";
+import { Title } from './../.nuxt/components.d';
+import { storyblokAsset, storyblokHeadings, storyblokButton } from "./storyblokMain";
 
 export interface storyblokHeroSection {
-  bgAsset: storyblokAsset;
+  image: storyblokAsset;
+  previmage: storyblokAsset;
+  nextimage: storyblokAsset;
   headings: storyblokHeadings[];
   type: "home" | "packages" | "tour";
-  button: storyblokButton[];
+  actions: storyblokButton[];
+  heroslider:herosliderArray[];
+}
+
+export interface herosliderArray{
+  title: string;
+  headings: storyblokHeadings[];
+  action: storyblokButton[];
 }
