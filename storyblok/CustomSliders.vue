@@ -2,7 +2,7 @@
 import { onMounted, ref } from "vue";
 import storyblokApi from "../plugin/useStoryblokApi";
 const props = defineProps({
-    navImages: { type: Object , default: null },
+    blok: { type: Object, default: null },
 });
 const servives = ref([]);
 onMounted(async () => {
@@ -20,10 +20,18 @@ onMounted(async () => {
     console.error("Error in fetching services", error);
   }
 });
+
+import { Swiper, SwiperSlide } from "swiper/vue";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { Navigation, Pagination } from "swiper/modules";
+
+const modules = [Navigation, Pagination];
 </script>
 <template>
     <div>
-        <!-- {{ servives }} -->
+        <!-- {{ blok }} -->
         <!-- srvice sliders -->
       <swiper
         :navigation="{ nextEl: '.nextArrow', prevEl: '.prevArrow' }"
@@ -42,15 +50,15 @@ onMounted(async () => {
         <section class="parallax-slider-navigation cursor-pointer hidden md:block">
           <article class="nav-indicator prevArrow">
             <NuxtImg
-              :src="navImages.previmage.filename"
-              :alt="navImages.previmage.alt"
+              :src="blok.previmage.filename"
+              :alt="blok.previmage.alt"
               class="w-10 absolute z-40 top-[47%] left-[-5px]"
             />
           </article>
           <article class="nav-indicator nextArrow">
             <NuxtImg
-              :src="navImages.nextimage.filename"
-              :alt="navImages.nextimage.alt"
+              :src="blok.nextimage.filename"
+              :alt="blok.nextimage.alt"
               class="w-10 absolute z-40 top-[47%] right-[-5px]"
             />
           </article>
@@ -61,10 +69,10 @@ onMounted(async () => {
           class="py-14 md:pb-20 px-4 md:pl-6 lg:pl-12 md:max-w-[50%] lg:max-w-[33%]"
         >
           <NuxtImg
-            v-if="value.image.filename"
+            v-if="value.content.image.filename"
             format="webp"
             quality="100"
-            :src="value.image.filename"
+            :src="value.content.image.filename"
             class="w-[82%] mx-auto"
           ></NuxtImg>
           <div class="bg-white p-5 pt-52 mt-[-193px] card-body">
@@ -86,3 +94,31 @@ onMounted(async () => {
       </swiper>
     </div>
 </template>
+
+<style scoped>
+:deep(.swiper-pagination-bullet) {
+  width: 11px;
+  height: 11px;
+  margin-right: 8px !important;
+}
+:deep(.swiper-pagination-bullet-active) {
+  background-color: #ff6c2b !important ; /* Replace with your desired color */
+}
+:deep(.swiper-pagination) {
+  margin-bottom: 0px;
+}
+
+.swiper-slide-active .card-body {
+  box-shadow: 0px 10px 20px 0px #ddd !important;
+}
+.swiper-slide-active .card-body .btn {
+  filter: contrast(2.5) !important;
+  color: #2f6cc8af;
+}
+
+@media screen and (max-width: 780px) {
+  :deep(.swiper-pagination) {
+    margin-left: 0px;
+  }
+}
+</style>
