@@ -1,63 +1,54 @@
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
-import storyblokApi from "../plugin/useStoryblokApi";
-
-const servives = ref([]);
-onMounted(async () => {
-  try {
-    const { data } = await storyblokApi.get("cdn/stories", {
-      version: "draft",
-      resolve_links: "url",
-      starts_with: "services/",
-    });
-    const servicesStories = data.stories.filter((story) =>
-      story.full_slug.startsWith("services/")
-    );
-    servives.value = servicesStories.map((story) => story);
-  } catch (error) {
-    console.error("Error in fetching services", error);
-  }
+import { customServices } from "../types/customServices";
+import { PropType } from "vue";
+const props = defineProps({
+  service: { type: Object as PropType<customServices>, default: null },
+  index: { type: Number, required: true },
 });
 </script>
 <template>
-  <div>
-    <div
-    v-for="(data, index) of servives"
-     :key="index"
-      class="pt-10 pb-4 relative h-full bg-bgGray"
-      :class="{ 'bg-white': index % 2 !== 1 }"
+  <div
+    class="pt-10 pb-4 relative h-full bg-bgGray"
+    :class="{ 'bg-white': index % 2 !== 1 }"
+  >
+    <section
+      class="flex flex-col gap-20 py-14 mx-4 lg:flex-row md:max-w-[1200px] md:mx-auto"
+      :class="{ 'lg:flex-row-reverse': index % 2 !== 1 }"
     >
-      <section
-        class="flex flex-col gap-20 py-14 mx-4 lg:flex-row md:max-w-[1200px] md:mx-auto"
-        :class="{ 'lg:flex-row-reverse': index % 2 !== 1 }"
-      >
-        <!-- image column is here -->
-        <article class="mb-4 lg:min-w-[570px]">
-          <NuxtImg
-            v-if="data.content.image.filename"
-            format="webp"
-            quality="100"
-            :src="data.content.image.filename"
-            :alt="data.content.image.alt"
-            class="w-full"
-          ></NuxtImg>
-        </article>
-        <!-- column is here -->
-        <article class="self-center lg:col-span-3 md:col-span-3 sm:col-span-1">
-          <StoryblokHeading
-            class="font-jakarta mb-6 max-w-[450px] fixLineHeight"
-            v-for="(heading, index) of data.content.headings"
+      <!-- image column is here -->
+      <article class="mb-4 lg:min-w-[570px]">
+        <NuxtImg
+          v-if="service.content.image.filename"
+          format="webp"
+          quality="100"
+          :src="service.content.image.filename"
+          :alt="service.content.image.alt"
+          class="w-full"
+        ></NuxtImg>
+      </article>
+      <!-- content column is here -->
+      <article class="self-center lg:col-span-3 md:col-span-3 sm:col-span-1">
+        <StoryblokHeading
+          class="font-jakarta mb-6 max-w-[450px] fixLineHeight"
+          v-for="(heading, index) of service.content.headings"
+          :key="index"
+          :heading="heading"
+        />
+        <p
+          class="font-normal text-lg mt-2 font-jakarta text-textGray2 max-w-[500px]"
+        >
+          {{ service.content.text }}
+        </p>
+        <!-- button is here -->
+        <section class="mt-7">
+          <Btn
+            v-for="(value, index) of service.content.action"
             :key="index"
-            :heading="heading"
+            :btnContent="value"
           />
-          <p
-            class="font-normal text-lg mt-2 font-jakarta text-textGray2 max-w-[500px]"
-          >
-            {{ data.content.text }}
-          </p>
-        </article>
-      </section>
-    </div>
+        </section>
+      </article>
+    </section>
   </div>
 </template>
 
