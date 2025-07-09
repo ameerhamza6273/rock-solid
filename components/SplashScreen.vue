@@ -2,11 +2,7 @@
   <div
     class="h-screen w-screen overflow-hidden fixed top-0 left-0 bg-secondary z-[9999] flex justify-center items-center flex-col img"
   >
-    <NuxtImg
-      src="/logosplash.png"
-      class="w-60 box"
-      alt="user"
-    ></NuxtImg>
+    
   </div>
 </template>
 
