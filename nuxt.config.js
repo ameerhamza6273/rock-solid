@@ -2,14 +2,15 @@ export default defineNuxtConfig({
   css: ["@/assets/css/roboto.css", "@/assets/css/main.css"],
   modules: [
     "@nuxt/image",
-    'nuxt-swiper',
-    "@nuxtjs/tailwindcss", '@nuxtjs/seo',
+    "nuxt-swiper",
+    "@nuxtjs/tailwindcss",
+    "@nuxtjs/seo",
     [
       "@storyblok/nuxt",
       {
-        accessToken:'QyhbKwwwkYgsE8226xrqaAtt',
+        accessToken: "QyhbKwwwkYgsE8226xrqaAtt",
         apiOptions: {
-          region: "", // Set 'US" if your space is created in US region (EU default)
+          region: "", // Set 'US' if your space is created in US region (EU default)
         },
       },
     ],
@@ -24,7 +25,16 @@ export default defineNuxtConfig({
       FROM_EMAIL: process.env.FROM_EMAIL,
       TO_EMAIL: process.env.TO_EMAIL,
       SUBJECT: process.env.SUBJECT,
-      REPLY_TO_EMAIL: process.env.REPLY_TO_EMAIL
+      REPLY_TO_EMAIL: process.env.REPLY_TO_EMAIL,
+    },
+  },
+
+  app: {
+    head: {
+      title: 'Rock Solid Concrete',
+      meta: [
+        { name: 'description', content: 'Website Description' }
+      ]
     }
   },
 
@@ -34,7 +44,8 @@ export default defineNuxtConfig({
     description: 'Website Description',
     defaultLocale: 'en', // not needed if you have @nuxtjs/i18n installed
   },
+
   seo: {
-    redirectToCanonicalSiteUrl: true
+    redirectToCanonicalSiteUrl: true,
   },
 });
